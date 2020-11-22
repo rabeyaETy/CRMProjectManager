@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Notice</title>
+</head>
+<body>
+		<% if (user == null) { %>
+		<% include ../header/menu_unr.ejs %>
+		<% } else if(user.designation == 'manager') { %>
+		<%- include('../header/menu_manager.ejs',{user: user}) %>
+		<% } else if(user.designation == 'Executive'){ %>
+		<%- include('../header/menu_executive.ejs',{user: user}) %>
+		<% } else { %>
+		<%- include('../header/menu_GM.ejs',{user: user}) %>
+		<% } %>
+			<div>
+					<div style="height: 100px"></div>
+					<div align="center">
+						<div style="width: 50%;;" align="justify">
+							<h1>Notice</h1>
+							<% for(var i=0; i < notice.length; i++) { %>
+							<br>
+							<h2><%= notice[i].creatorid %></h2>
+							<p>
+									<%= notice[i].noticedate %>
+							</p>
+							<br/>
+							<h2>
+								<%= notice[i].title %>
+							</h2>
+							<form method="get">
+									<table>
+										<tr>
+												<textarea name="description" id="description" readonly style="height: 200px; width: 100%;"><%= notice[i].description %></textarea>
+										</tr>
+									</table>
+							</form>
+							<!-- <p>
+									<textarea name="description" id="description" value=<%= notice[i].description %> style="height: 50px; width: 400%;"></textarea>
+									
+							</p> -->
+							
+			
+							<% } %>
+					</div>
+			</div>
+			<div style="overflow: hidden;margin-top: 1260px;"><% include ../footer/footer.ejs %></div>
+</body>
+</html>

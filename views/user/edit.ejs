@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>userlist</title>
+</head>
+<body>
+	<h1>Edit user</h1>
+
+	<!-- <a href="/user/userlist">Back</a> |
+	<a href="/logout">logout</a> -->
+		<% if (user == null) { %>
+		<% include ../header/menu_unr.ejs %>
+		<% } else if(user.designation == 'manager') { %>
+		<%- include('../header/menu_manager.ejs',{user: user}) %>
+		<% } else if(user.designation == 'Executive'){ %>
+		<%- include('../header/menu_executive.ejs',{user: user}) %>
+		<% }  else { %>
+		<%- include('../header/menu_GM.ejs',{user: user}) %>
+		<% } %>
+<br><br>
+
+<form method="post">
+	<table border="0">
+		<tr>
+			<td>Username</td>
+			<td><input type="text" name="name" value="<%= user.name%>"> </td>
+		</tr>
+		<tr>
+			<td>PASSWORD</td>
+			<td><input type="password" name="password" value="<%=user.password%>"></td>
+		</tr>
+		<tr>
+			<td>Email</td>
+			<td><input type="text" name="email" value="<%=user.email%>"></td>
+		</tr>
+		<tr>
+			<td>Contactnumber</td>
+			<td><input type="text" name="contactnumber" value="<%=user.contactnumber%>"></td>
+		</tr>
+		<tr>
+			<td>Salary</td>
+			<td><input type="text" name="salary" value="<%=user.salary%>"></td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td><input type="submit" name="submit" value="Save"></td>
+		</tr>
+	</table>
+</form>
+<div style="overflow: hidden;margin-top: 1260px;"><% include ../footer/footer.ejs %></div>
+</body>
+</html>

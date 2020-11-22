@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Profile</title>
+</head>
+<body>
+	<% if (user == null) { %>
+	<% include ../header/menu_unr.ejs %>
+	<% } else if(user.designation == 'manager') { %>
+	<%- include('../header/menu_manager.ejs',{user: user}) %>
+	<% } else if(user.designation == 'Executive'){ %>
+	<%- include('../header/menu_executive.ejs',{user: user}) %>
+	<% } else { %>
+	<%- include('../header/menu_GM.ejs',{user: user}) %>
+	<% } %>
+
+
+	<div>
+		<div style="height: 100px"></div>
+		<div style="height: 500px" align="center">
+			<form method="post">
+				<fieldset style="width: 35%; height: 200px;" align="left">
+					<legend>Edit Profile</legend>
+					<br>
+					<table border="0" style="float: center">
+						<tr>
+							<td>Name</td>
+							<td><input type="text" name="name" value="<%= user.name%>"> </td>
+						</tr>
+						<tr>
+							<td>Password</td>
+							<td><input type="password" name="password" value="<%=user.password%>"></td>
+						</tr>
+						<tr>
+							<td>Email</td>
+							<td><input type="text" name="email" value="<%=user.email%>"></td>
+						</tr>
+						<tr>
+							<td>Contact Number</td>
+							<td><input type="text" name="contactnumber" value="<%=user.contactnumber%>"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><input type="submit" name="submit" value="Save"></td>
+						</tr>
+					</table>
+				</fieldset>
+		</form>
+		</div>
+		<div style="height: 100px"></div>
+	</div>
+	<div style="overflow: hidden;margin-top: 1260px;"><% include ../footer/footer.ejs %></div>
+</body>
+</html>

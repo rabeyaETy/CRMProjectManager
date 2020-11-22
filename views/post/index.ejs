@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create Post</title>
+</head>
+<body>
+	
+	    <% if (user == null) { %>
+		<% include ../header/menu_unr.ejs %>
+		<% } else if(user.designation == 'manager') { %>
+		<%- include('../header/menu_manager.ejs',{user: user}) %>
+		<% } else if(user.designation == 'Executive'){ %>
+		<%- include('../header/menu_executive.ejs',{user: user}) %>
+		<% }  else { %>
+		<%- include('../header/menu_GM.ejs',{user: user}) %>
+		<% } %>
+
+	<div>
+		<div style="height: 100px"></div>
+		<div align="center">
+			<div style="width: 50%;;" align="justify">
+				<h1>Posts</h1>
+				<% for(var i=0; i < post.length; i++) { %>
+				<br>
+				<h2><%= post[i].creatorid %></h2>
+				<p>
+					<%= post[i].postdescription %>
+				</p>
+
+				<h3>Comment</h3>
+				<form method="post">
+					<table>
+						<tr>
+							<td><textarea name="description" id="description" style="height: 50px; width: 400%;"></textarea></td>
+						</tr>
+						<tr>
+							<td><input type="submit" name="submit" value="Submit" id="submit"></td>
+						</tr>
+					</table>
+				</form>
+				<h3>Comments</h3>
+				<iframe src="../comment/index.html" width="100%"></iframe>
+				<br><br>
+				<% } %>
+			</div>
+	</div>
+	<div style="overflow: hidden;margin-top: 1260px;"><% include ../footer/footer.ejs %></div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>executivelist</title>
+</head>
+<body>
+	<h1>Executive List</h1>
+
+
+		<% if (user == null) { %>
+		<% include ../header/menu_unr.ejs %>
+		<% } else if(user.designation == 'OSA') { %>
+		<%- include('../header/menu_osa.ejs',{user: user}) %>
+		<% } %>
+<br><br>
+	<table border="1">
+		<tr>
+			<td>User ID</td>
+			<td>Name</td>
+			<td>User Type</td>
+			<td>Designation</td>
+			<td>Contactnumber</td>
+			<td>Email</td>
+			<td>Salary</td>
+			
+			<td>ACTION</td>
+		</tr>
+
+	<% for(var i=0; i< user.length; i++){ %>
+		<tr>
+			<td><%= user[i].userid %></td>
+			<td><%= user[i].name %></td>
+			<td><%= user[i].usertype %></td>
+			<td><%= user[i].designation %></td>
+			<td><%= user[i].contactnumber %></td>
+			<td><%= user[i].email %></td>
+			<td><%= user[i].salary %></td>
+			
+			<td>
+				<a href="/user/edit/<%= user[i].userid %>"> EDIT </a> | 
+				<a href="/user/delete/<%= user[i].userid %>"> DELETE </a> | 
+				<a href="/user/details/<%= user[i].userid %>"> Details </a>
+			</td>
+		</tr>
+
+	<% } %>
+	</table>
+	<div style="overflow: hidden;margin-top: 1260px;"><% include ../footer/footer.ejs %></div>
+</body>
+</html>

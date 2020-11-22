@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!-- <link rel="stylesheet"href="style.css"> -->
+	<style>
+		
+		*{
+	padding: 0;
+	margin: 0;
+}
+
+.menu{
+	background:#581845 ;
+	text-align: center;
+}
+
+.menu ul{
+	display: inline-flex;
+	list-style: none;
+	color: #fff;
+}
+
+.menu ul li{
+	width: 120px;
+	margin: 10px;
+	padding: 10px;
+}
+.menu ul li:hover{
+	background:#900C3F;
+	border-radius:2px;
+}
+
+
+.menu ul li a{
+	color: white;
+	text-decoration: none;
+}
+.menu .fa{
+	margin-right: 2px;
+}
+
+.sub-menu1{
+	display: none;
+}
+.menu ul li:hover .sub-menu1{
+	display: block;
+	position: absolute;
+	background:#581845;
+	margin-top: 10px;
+	margin-left: -10px;
+
+}
+
+.sub-menu2{
+	display: none;
+}
+
+.menu ul li:hover .sub-menu2{
+	display: block;
+	position: absolute;
+	background:#581845;
+	margin-top: 10px;
+	margin-left: -10px;
+
+}
+
+	</style>
+	<link rel="stylesheet"href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<div class="hero">
+	<div class="menu">
+	<ul>
+		<li class="active"><i class="fa fa-home"></i><a href="/home">Home</a></li>
+		<li><i class="fa fa-bell"></i><a href="/notice/noticerequest">Notice Request</a></li>
+
+
+		<li><i class="fa fa-plus-square"></i><a href="#">Create..</a>
+			<div class="sub-menu1">
+				<ul>
+					<li><a href="notice/createnotice">Notice</a></li>
+					<li><a href="post/createpost">Post</a></li>
+					<li><a href="event/createevent">Campaign</a></li>
+				</ul>
+
+			</div>
+
+		</li>
+
+		<li><i class="fa fa-plus-square"></i><a href="#">View</a>
+			<div class="sub-menu1">
+				<ul>
+					<li><a href="/notice">Notice</a></li>
+					<li><a href="/post">Post</a></li>
+					<li><a href="/event">Campaign</a></li>
+				</ul>
+
+			</div>
+
+		</li>
+
+		<li><i class="fa fa-list"></i><a href="#">Member List</a>
+			<div class="sub-menu2">
+				<ul>
+					<li><a href="/user/executivelist">Executive</a></li>
+					<li><a href="/user/userlist">General Employee</a></li>
+				</ul>
+
+			</div>
+		</li>
+
+
+		<li><i class="fa fa-user-plus"></i><a href="/user/adduser">Add Member</a></li>
+		<li><i></i><a href="/user/editprofile/<%= user.userid %>">Edit Profile</a></li>
+		<li><a href="/logout">Log Out</a></li>
+	</ul>
+	</div>
+</div>
+</body>
+</html>

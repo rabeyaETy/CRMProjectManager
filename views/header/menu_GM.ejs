@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!-- <link rel="stylesheet"href="style.css"> -->
+	<style>
+		
+		*{
+	padding: 0;
+	margin: 0;
+}
+.menu{
+	background:#581845 ;
+	text-align: center;
+}
+
+.menu ul{
+	display: inline-flex;
+	list-style: none;
+	color: #fff;
+}
+
+.menu ul li{
+	width: 120px;
+	margin: 10px;
+	padding: 10px;
+}
+.menu ul li:hover{
+	background:#900C3F;
+	border-radius:2px;
+}
+
+
+.menu ul li a{
+	color: white;
+	text-decoration: none;
+}
+.menu .fa{
+	margin-right: 2px;
+}
+
+.sub-menu1{
+	display: none;
+}
+.menu ul li:hover .sub-menu1{
+	display: block;
+	position: absolute;
+	background:#581845;
+	margin-top: 10px;
+	margin-left: -10px;
+
+}
+
+.sub-menu2{
+	display: none;
+}
+
+.menu ul li:hover .sub-menu2{
+	display: block;
+	position: absolute;
+	background:#581845;
+	margin-top: 10px;
+	margin-left: -10px;
+
+}
+
+	</style>
+	<link rel="stylesheet"href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+	<div class="menu">
+	<ul>
+		<li class="active"><i class="fa fa-home"></i><a href="/home">Home</a></li>
+		<li><i class="fa fa-plus-square"></i><a href="#">Create..</a>
+			<div class="sub-menu1">
+				<ul>
+					<li><a href="/post/createpost">Post</a></li>
+				</ul>
+			</div>
+		</li>
+		<li><a href="/post">Post View</a></li>
+		<li><a href="/event">Event View</a></li>
+		<li><i></i><a href="#">Profile</a>
+			<div class="sub-menu1">
+				<ul>
+					<li><a href="/user/profile/<%= user.userid %>">Details</a></li>
+					<li><i></i><a href="/user/editprofile/<%= user.userid %>">Edit</a></li>
+				</ul>
+			</div>
+		</li>
+		<li><a href="/logout">Log Out</a></li>
+	</ul>
+	</div>
+</body>
+</html>

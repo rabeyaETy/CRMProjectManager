@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Profile</title>
+	</head>
+	<body>
+
+		<% if (user == null) { %>
+		<% include ../header/menu_unr.ejs %>
+		<% } else if(user.designation == 'manager') { %>
+		<%- include('../header/menu_manager.ejs',{user: user}) %>
+		<% } else if(user.designation == 'Executive'){ %>
+		<%- include('../header/menu_executive.ejs',{user: user}) %>
+		<% } else { %>
+		<%- include('../header/menu_GM.ejs',{user: user}) %>
+		<% } %>
+
+		<div>
+			<div style="height: 100px"></div>
+			<div style="height: 500px" align="center">
+				<fieldset style="width: 30%; height: 200px;" align="left">
+					<legend>Profile</legend>
+					<br>
+					<table border="0">
+						<tr>
+							<td>User ID</td>
+							<td>: </td>
+							<td><%= user.userid %></td>
+						</tr>
+						
+						<tr>
+							<td>Name</td>
+							<td>: </td>
+							<td><%= user.name %></td>
+						</tr>
+						<tr>
+							<td>User Type</td>
+							<td>: </td>
+							<td><%= user.usertype %></td>
+						</tr>
+						<tr>
+							<td>Designation</td>
+							<td>: </td>
+							<td><%= user.designation %></td>
+						</tr>
+						<tr>
+							<td>Email</td>
+							<td>: </td>
+							<td><%= user.email %></td>
+						</tr>
+						<tr>
+							<td>Contact Number</td>
+							<td>: </td>
+							<td><%= user.contactnumber %></td>
+						</tr>
+					</table>
+				</fieldset>
+			</div>
+			<div style="height: 100px"></div>
+		</div>
+		<div style="overflow: hidden;margin-top: 1260px;"><% include ../footer/footer.ejs %></div>
+	</body>
+</html>

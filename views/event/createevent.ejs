@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create Campaign</title>
+</head>
+<body>
+	<% if (user == null) { %>
+			<% include ../header/menu_unr.ejs %>
+			<% } else if(user.designation == 'manager') { %>
+			<%- include('../header/menu_manager.ejs',{user: user}) %>
+			<% } else if(user.designation == 'Executive'){ %>
+			<%- include('../header/menu_executive.ejs',{user: user}) %>
+			<% } else { %>
+			<%- include('../header/menu_GM.ejs',{user: user}) %>
+			<% } %>
+	<div>
+		<div style="height: 100px"></div>
+		<div style="height: 500px" align="center">
+			<form method="post">
+				<fieldset style="width: 30%; height: 240px;" align="left">
+					<legend>Create Campaign</legend>
+					<br>
+					<table>
+						<tr>
+							<td>Campaign Title</td>
+							<td>:</td>
+							<td><input type="text" name="eventname" id="eventname"></td>
+						</tr>
+						<tr>
+							<td>Description</td>
+							<td>:</td>
+							<td><textarea name="eventdescription" id="eventdescription" style="height: 80px; width: 150%;"></textarea></td>
+						</tr>
+						<tr>
+							<td>Expire Date</td>
+							<td>:</td>
+							<td><input type="date" name="expiredate" id="expiredate"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td><input type="submit" name="submit" value="Submit" id="submit"></td>
+						</tr>
+					</table>
+				</fieldset>
+		</form>
+	</div>
+	</div>
+	<div style="overflow: hidden;margin-top: 1260px;"><% include ../footer/footer.ejs %></div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Campaigns</title>
+</head>
+<body>
+	
+	<% if (user == null) { %>
+	<% include ../header/menu_unr.ejs %>
+	<% } else if(user.designation == 'manager') { %>
+	<%- include('../header/menu_manager.ejs',{user: user}) %>
+	<% } else if(user.designation == 'Executive'){ %>
+	<%- include('../header/menu_executive.ejs',{user: user}) %>
+	<% }  else { %>
+	<%- include('../header/menu_GM.ejs',{user: user}) %>
+	<% } %>
+
+	<div>
+		<div style="height: 100px"></div>
+		<div align="center">
+			<div style="width: 50%;;" align="justify">
+				<h1>Campaigns</h1>
+				<% for(var i=0; i < event.length; i++) { %>
+				<br>
+				<h2><%= event[i].eventname %></h2>
+				<!-- <h2><%= event[i].eventname %></h2> -->
+				<p>
+					<%= event[i].eventdescription %>
+				</p>
+
+				<% } %>
+			</div>
+	</div>
+	<div style="overflow: hidden;margin-top: 1260px;"><% include ../footer/footer.ejs %></div>
+</body>
+</html>

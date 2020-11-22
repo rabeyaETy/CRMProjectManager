@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		function validate(){
+			var uid = document.geteElementById('userid');
+			var password = document.geteElementById('password');
+			if(uid.value.trim()=="" || password.value.trim()=="")
+			{
+				alert("Userid/password can not be empty");
+				return false;
+			}
+			else
+				return true;
+		}
+	</script>
+
+	<div>
+		<div style="height: 100px"></div>
+		<div style="height: 500px" align="center">
+			<form method="post" onsubmit="return validate()">
+				<fieldset style="width: 30%; height: 150px;" align="left">
+					<legend>Login</legend>
+					<br>
+					<table>
+						<tr>
+							<td>User ID</td>
+							<td>:</td>
+							<td><input type="text" name="userid" id="userid"></td>
+						</tr>
+						<tr>
+							<td>Password</td>
+							<td>:</td>
+							<td><input type="password" name="password" id="password"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><input type="checkbox" name="logcheck" value="checked" id="logcheck"></td>
+							<td>Stay Logged In</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td><input type="submit" name="submit" value="Submit" id="submit"></td>
+						</tr>
+					</table>
+				</fieldset>
+		</form>
+		</div>
+		<div style="height: 100px"></div>
+	</div>
+	<div style="overflow: hidden;margin-top: 1260px;"><% include ../footer/footer.ejs %></div>
+</body>
+</html>

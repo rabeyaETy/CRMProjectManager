@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Notice</title>
+</head>
+<body>
+	<div>
+		<div style="height: 100px"></div>
+		<div style="height: 500px" align="center">
+			<form method="post">
+				<fieldset style="width: 30%; height: 240px;" align="left">
+					<legend>Edit Notice</legend>
+					<br>
+					<table>
+						<tr>
+							<td>Notice Title</td>
+							<td>:</td>
+							<td><input type="text" name="title" id="title" value="Imprtant Notice"></td>
+						</tr>
+						<tr>
+							<td>Description</td>
+							<td>:</td>
+							<td><textarea name="description" id="description" style="height: 80px; width: 150%;">
+								Notice is the legal concept describing a requirement that a party be aware of legal process affecting their rights, obligations or duties. 
+								There are several types of notice: public notice (or legal notice), actual notice, constructive notice, and implied notice.
+							</textarea></td>
+						</tr>
+						<tr>
+							<td>Expire Date</td>
+							<td>:</td>
+							<td><input type="date" name="expiredate" id="expiredate" value=""></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td><input type="submit" name="submit" value="Submit" id="submit"></td>
+						</tr>
+					</table>
+				</fieldset>
+		</form>
+	</div>
+	<div style="overflow: hidden;margin-top: 1260px;"><% include ../footer/footer.ejs %></div>
+</body>
+</html>

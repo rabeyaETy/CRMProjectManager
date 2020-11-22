@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Notice Request List</title>
+</head>
+<body>
+		<% if (user == null) { %>
+		<% include ../header/menu_unr.ejs %>
+		<% } else if(user.designation == 'manager') { %>
+		<%- include('../header/menu_manager.ejs',{user: user}) %>
+		<% } else if(user.designation == 'Executive'){ %>
+		<%- include('../header/menu_executive.ejs',{user: user}) %>
+		<% }  else { %>
+		<%- include('../header/menu_GM.ejs',{user: user}) %>
+		<% } %>
+
+	<br>
+
+	<h1>Notice Request List</h1>
+<br><br>
+	<table border="1" width="80%" align="center">
+		<tr>
+			<td style="width: 50px">SL No.</td>
+			<td style="width: 200px">Title</td>
+			<td style="width: 450px">Description</td>
+			<td style="width: 150px">Create Date</td>
+			<td style="width: 150px">Expire Date</td>
+			<td>ACTION</td>
+		</tr>
+		<% for(var i=0; i< notice.length; i++){ %>
+		<tr>
+			<td><%= i %></td>
+			<td><%= notice[i].title %></td>
+			<td><%= notice[i].description %></td>
+			<td><%= notice[i].noticedate %></td>
+			<td><%= notice[i].expiredate %></td>
+			<td>
+				<a href="/notice/approve/<%= notice[i].noticeid %>">APPROVE</a> | | 
+				<a href="/notice/reject/<%= notice[i].noticeid %>">REJECT</a>
+			</td>
+		</tr>
+		<% } %>
+	</table>
+	<div style="overflow: hidden;margin-top: 1260px;"><% include ../footer/footer.ejs %></div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>userlist</title>
+</head>
+<body>
+	<h1>Details </h1>
+
+	<!-- <a href="/user/userlist">Back</a> |
+	<a href="/logout">logout</a> -->
+		<% if (user == null) { %>
+		<% include ../header/menu_unr.ejs %>
+		<% } else if(user.designation == 'manager') { %>
+		<%- include('../header/menu_manager.ejs',{user: user}) %>
+		<% } else if(user.designation == 'Executive'){ %>
+		<%- include('../header/menu_executive.ejs',{user: user}) %>
+		<% } else { %>
+		<%- include('../header/menu_GM.ejs',{user: user}) %>
+		<% } %>
+<br><br>
+
+<form method="post">
+	<table border="0">
+		<tr>
+			<td>User ID :</td>
+			<td><%= user.userid %></td>
+		</tr>
+		
+		<tr>
+			<td>Name :</td>
+			<td><%= user.name %></td>
+		</tr>
+		<tr>
+			<td>User Type :</td>
+			<td><%= user.usertype %></td>
+		</tr>
+		<tr>
+			<td>Designation :</td>
+			<td><%= user.designation %></td>
+		</tr>
+		<tr>
+			<td>Email :</td>
+			<td><%= user.email %></td>
+		</tr>
+		<tr>
+			<td>Salary :</td>
+			<td><%= user.salary %></td>
+		</tr>
+
+		<!-- <tr>
+			<td>PASSWORD :</td>
+			<td><%= user.password %></td>
+		</tr> -->
+		
+	</table>
+</form>
+<div style="overflow: hidden;margin-top: 1260px;"><% include ../footer/footer.ejs %></div>
+</body>
+</html>
